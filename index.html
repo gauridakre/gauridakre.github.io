@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gauri  | Teacher</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0e0e0e;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 50px;
+        }
+
+        #hero h1 span {
+            color: #00bfff;
+        }
+
+        .btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 12px 25px;
+            background: #00bfff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 80px 50px;
+        }
+
+        #projects .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .project-card a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #111;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">YourName</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Hello, I'm <span>Gauri</span></h1>
+        <p>A <span id="typed"></span></p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Write an introduction about yourself. Mention your background, skills, and goals.
+        </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>A description of your project.</p>
+                <a href="#">View</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>Another project description.</p>
+                <a href="#">View</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Project Three</h3>
+                <p>Another cool project description.</p>
+                <a href="#">View</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:you@example.com" style="color:#00bfff;">you@example.com</a></p>
+        <p>LinkedIn: <a href="#" style="color:#00bfff;">Your LinkedIn</a></p>
+        <p>GitHub: <a href="#" style="color:#00bfff;">Your GitHub</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Typing animation
+        const words = ["Developer", "Designer", "Creator"];
+        let i = 0, j = 0, isDeleting = false;
+        const speed = 120;
+
+        function typeEffect() {
+            const elem = document.querySelector("#typed");
+            let word = words[i];
+
+            if (!isDeleting) {
+                elem.textContent = word.substring(0, j++);
+                if (j > word.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 1000);
+                    return;
+                }
+            } else {
+                elem.textContent = word.substring(0, j--);
+                if (j < 0) {
+                    isDeleting = false;
+                    i = (i + 1) % words.length;
+                }
+            }
+
+            setTimeout(typeEffect, speed);
+        }
+
+        typeEffect();
+    </script>
+
+</body>
+</html>
